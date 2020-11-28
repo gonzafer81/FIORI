@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		noDataText="No se encontro la informacion" 
+		title="Seleccione informacion de usuario"
+		rememberSelections = "true"
+		search="handleSearch"
+		confirm="handleClose"
+		cancel="handleClose"
+		items="{
+			path: '/UserInfoCollection'
+		}"> 
+		<StandardListItem
+			id ="StandardListItem"
+			title="{DisplayName}"
+			description="{Company}"
+			type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>
