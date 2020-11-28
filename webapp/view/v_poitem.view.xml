@@ -1,0 +1,22 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ZFER01.controller.v_poitem">
+	<App>
+		<pages>
+			<Page title="Item View" showNavButton="true" navButtonPress="poitemGoBack">
+				<content>
+					<Bar>
+						<contentLeft>
+							<Button text="{i18n>buttonText}" type="Emphasized" press="onButton1Press"/>
+						</contentLeft>
+					</Bar>
+				    <VBox width="100%" direction="Column" id="__vbox0" validateFieldGroup="poitemGoBack">
+				        <items>
+				            <Text text="PO Number: {SalesOrderID}" id="__text0"/>
+				            <Text text="Customer name: {CustomerName}" id="__text1"/>
+				            <Text text="Amount: {GrossAmount}" id="__text2"/>
+				        </items>
+				    </VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

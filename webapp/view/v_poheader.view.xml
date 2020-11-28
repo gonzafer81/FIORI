@@ -1,0 +1,29 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ZFER01.controller.v_poheader">
+	<App>
+		<pages>
+			<Page title="Header View">
+				<content>
+					<Select id ="comboBox"
+					    	forceSelection="false"
+							items="{
+							path: '/SalesOrderSet',
+							sorter: { path: 'SalesOrderID' }
+							}">
+						<core:Item key="{SalesOrderID}" text="{SalesOrderID}" />
+					    </Select>
+					<Bar id="__bar0"> <!--Se agrega una toolbar para poner botones-->
+					    <contentLeft>
+					        <Button text="{i18n>buttonText}" width="200px" id="__button0" press="onButton1Press" type="Emphasized"/>
+					    </contentLeft>
+					</Bar>
+				    <List noDataText="Drop list items here" id="__list0" items="{/SalesOrderSet}" growing="true" growingThreshold="6" growingScrollToLoad="false">
+				        <items>
+				            <StandardListItem type="Navigation" title="PO Number: {SalesOrderID} Status: {BillingStatus}" description="Status text: {BillingStatusDescription}" 
+				            icon="sap-icon://sales-order" id="__item0" press="onPress"/>
+				         </items>
+				    </List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

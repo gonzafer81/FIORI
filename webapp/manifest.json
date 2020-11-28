@@ -1,0 +1,140 @@
+{
+	"_version": "1.7.7",
+	"sap.app": {
+		"id": "ZFER01",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"GWSAMPLE_BASIC": {
+				"uri": "/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ZFER01.view.v_root",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ZFER01.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneTime",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "GWSAMPLE_BASIC",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"viewPath": "ZFER01.view",
+				"controlId": "v_root",
+				"viewLevel": 1,
+				"controlAggregation": "pages",
+				"routerClass": "sap.m.routing.Router"
+			},
+			"routes": [{
+				"name": "route_poheader",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["target_poheader"]
+			}, {
+				"name": "route_poitem",
+				"pattern": "SalesOrderSet{itemseleccionado}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["target_poitem"]
+			}, {
+				"name": "route_view3",
+				"pattern": "Item{itemSelected}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["target_view3"]
+			}],
+			"targets": {
+				"target_poheader": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "v_poheader",
+					"viewLevel": 1
+				},
+				"target_poitem": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "v_poitem",
+					"viewLevel": 2
+				},
+				"target_view3": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "v_view3",
+					"viewLevel": 2
+				}
+			}
+		}
+	}
+}

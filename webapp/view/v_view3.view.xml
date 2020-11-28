@@ -1,0 +1,32 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ZFER01.controller.v_view3">
+	<App>
+		<pages>
+			<Page title="v_view3" showNavButton="true" navButtonPress="view3Back">
+				<content>
+					<Table id="idProductsTable" items="{ToLineItems}">
+						<columns>
+							<Column><Text text="Posicion"/></Column>
+							<Column><Text text="Descripcion"/></Column>
+							<Column><Text text="Monto Bruto"/></Column>
+							<Column><Text text="Monto Neto"/></Column>
+							<Column><Text text="Impuesto"/></Column>
+							<Column><Text text="Fecha Entrega"/></Column>
+							<Column><Text text="Cantidad"/></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<ObjectIdentifier title="{ItemPosition}" text="{ProductID}"/>
+									<Text text="{Note}"/>
+									<ObjectNumber number="{GrossAmount}" unit="{CurrencyCode}"/>
+									<ObjectNumber number="{NetAmount}" unit="{CurrencyCode}"/>
+									<ObjectNumber number="{TaxAmount}" unit="{CurrencyCode}"/>
+									<Text text="{DeliveryDate}"/>
+									<ObjectNumber number="{Quantity}" unit="{QuantityUnit}"/>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
